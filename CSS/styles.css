@@ -1,0 +1,91 @@
+
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: Inconsolata, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,p {
+    margin: 0;
+}
+
+/* Some form resets */
+
+button, input {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input {
+    -webkit-appearance: none; 
+    appearance: none;
+}
+
+input, button {
+    display: block;
+    width: 350px;
+    padding: 0;
+    margin: 0;
+    height: 3em;
+    border: 1px solid rgb(124, 120, 120);
+    border-radius: 5px;
+    
+}
+
+button {
+    cursor: pointer;
+}
+/* Styling the form */
+
+.form-container{
+    width: 450px;
+    padding: 3em;
+    text-align: center;
+    background-color: #99a8b2;
+    border-radius: 5px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
+}
+
+form {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.input-wrapper {
+    margin-bottom: 1em;
+}
+
+/* Page Title */
+
+.main-heading {
+    font-size: 4.4rem;
+    font-weight: 800;
+    color: #1f6f8b;
+}
+
+.subheading {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1c2b2d;
+}
+
+button {
+    color:#1f6f8b;
+    background-color: #e6d5b8;
+}
+
+
+
+
+
+
+
