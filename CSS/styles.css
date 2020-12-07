@@ -25,15 +25,20 @@ button, input {
     font-size: 100%;
 }
 
-input {
+input[type="email"],
+input[type="password"],
+input[type="text"] {
     -webkit-appearance: none; 
     appearance: none;
 }
 
-input, button {
+input[type="email"],
+input[type="password"],
+input[type="text"], 
+button {
     display: block;
     width: 350px;
-    padding: 0;
+    padding: 0 0 0 0.5em;
     margin: 0;
     height: 3em;
     border: 1px solid rgb(124, 120, 120);
@@ -45,6 +50,12 @@ button {
     cursor: pointer;
 }
 /* Styling the form */
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    margin-bottom: 1em;
+}
 
 .form-container{
     width: 450px;
@@ -82,6 +93,166 @@ button {
     color:#1f6f8b;
     background-color: #e6d5b8;
 }
+
+/* MODAL */
+
+select {
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: 1rem;  
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    
+}
+
+.modal-content {
+    position: relative;
+    width: 550px;
+    margin: 0 auto;
+    margin-top: 14em;
+    padding: 2.7em;
+    background-color: #99a8b2;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
+    border-radius: 5px;
+
+}
+
+.modal-form {
+    
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-form input {
+    width: 100%;
+}
+
+.name-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-wrapper input {
+    width: 48%;
+}
+
+.birthday-wrapper {
+    display: flex;
+    justify-content: space-between;  
+}
+
+.birthday {
+   width: 30%;
+   height: 3em;
+   padding: 0 0 0 0.5em;
+   margin-bottom: 1em;
+   border-radius: 5px;  
+}
+
+.gender-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.gender-select {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    height: 3em;
+    border-radius: 5px;
+    padding: 0.3em;
+    background-color: #fff;;
+}
+
+label {
+    width: 40%; 
+    padding: 0 0.5em 0 0.5em;
+}
+
+input[type="radio"] {
+    position: absolute;
+    left: 50px;
+}
+
+.pronoun-select {
+    width: 100%;
+    height: 3em;
+    border-radius: 5px;
+    padding: 0 0 0 0.5em;
+}
+
+.question-mark {
+    display: flex;
+    margin-bottom: 0.4em;
+}
+
+.fa-question-circle {
+    font-size: 0.8rem;
+}
+
+.question-mark p {
+    font-size: 1rem;
+    margin-right: 0.2em;
+}
+
+.pronoun-info {
+    font-size: 0.8rem;
+    margin: 0.3em 0 1em 0;
+}
+
+.terms-text {
+    margin-bottom: 1.5em;
+    font-size: 0.8rem;
+}
+
+#optional-gender {
+    margin-bottom: 0.5em;
+}
+
+
+.sign-up-btn {
+    width: 50%;
+    margin: auto;
+}
+
+.close-btn {
+    position: absolute;
+    font-size: 2.2rem;
+    top: 0;
+    right: 15px;
+    cursor: pointer;
+    color: whitesmoke;
+    transition: all 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: tomato;
+}
+
+.pronoun-wrapper {
+    display: none;
+}
+
+
+
+  
+
+
+
+
+
 
 
 
