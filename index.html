@@ -11,19 +11,27 @@
     <title>Form Validation</title>
 </head>
 <body>
-    <div class="modal">
+    <div class="modal" id="modal-box">
         <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">Sign Up</h1>
+                <h4 class="modal-subtitle">It's quick and easy</h4>
+            </div>
             <form class="modal-form" method="post">
-                <div class="close-btn">&times;</div>
+                <div class="close-btn" id="close-modal">&times;</div>
                 <div class="name-wrapper">
                     <input type="text" name="fname" id="fname" placeholder="First name" aria-label="First name" required>
-                    <input type="text" name="lname" id="lname" placeholder="Last name" aria-label="Last name">
+                    <span></span>
+                    <input type="text" name="lname" id="lname" placeholder="Last name" aria-label="Last name" required>
+                    <span></span>
                 </div>
                 <div class="email-wrapper">
                     <input type="email" id="signup-email" name="email" placeholder="Email"  aria-label="Email" required>
+                    <span></span>
                 </div>
                 <div class="password-wrapper">
                     <input type="password" id="signup-password" name="password" placeholder="Password" aria-label="password" required>
+                    <span></span>
                 </div>
                 <div class="question-mark">
                     <p>Birthday</p>
@@ -164,11 +172,11 @@
                         <input type="radio" name="gender" id="custom">
                     </div>
                 </div>
-                <div class="pronoun-wrapper">
+                <div class="pronoun-wrapper" id="custom-gender">
                     <div class="pronoun">
                         <select class="pronoun-select" id="pronoun" aria-label="Select your pronoun" name="pronoun">
                             <option selected disabled>Select your pronoun</option>
-                            <option>She: "Wish hew a happy birthday!"</option>
+                            <option>She: "Wish her a happy birthday!"</option>
                             <option>He: "Wish him a happy birthday!"</option>
                             <option>They: "Wish them a happy birthday!"</option>
                         </select>
@@ -189,26 +197,31 @@
     <div class="container">
         <div class="page-description">
             <h1 class="main-heading">form validation</h1>
-            <p class="subheading">With native HTML controls and CSS</p>
+            <p class="subheading">With native HTML controls,CSS and Javascript Regular Expressions (click 'Create New Account' for a modal sign-up)</p>
         </div>
         <div class="form-container">
-            <form id="form" method="post">
+            <form id="main-form" method="post">
                 <div class="input-wrapper">
-                    <input type="email" id="email" name="email" placeholder="Email" autofocus aria-label="Email">
+                    <input type="email" id="email" name="email" placeholder="Email" autofocus aria-label="Email" >
+                    
+                    <div class="email-invalid"> Email address missing or invalid</div>
                 </div>
+                
                 <div class="input-wrapper">
                     <input type="password" id="password" name="password" placeholder="Password" aria-label="password">
+                    <div class="pass-required">Password missing or invalid (At least six characters, one uppercase, one lowercase and one non-alphanumeric symbol</div>
                 </div>
                 <div class="button-wrapper">
-                    <button type="submit" aria-label="login">Log In</button>
+                    <button type="submit" aria-label="Submit" id="logIn" name="submit" value="submit">Log In</button>
                 </div>
+            </form>
                 <div class="link-wrapper">
                     <p class="retrievePass" aria-label="Forgot Passowrd?"><a href="#">Forgot Password?</a></p>
                 </div>
                 <div class="button-wrapper">
-                    <button type="submit" id="registration-form" aria-label="Create new account">Create New Account</button>
+                    <button type="submit" id="registration-form" aria-label="Create new account"  class="new-account-btn">Create New Account</button>
                 </div>
-            </form>
+    
         </div><!--  .form container -->
     </div>
 

@@ -14,11 +14,11 @@ a {
     text-decoration: none;
 }
 
-h1,p {
+h1,h4,p {
     margin: 0;
 }
 
-/* Some form resets */
+/* FORM RESETS */
 
 button, input {
     font-family: inherit;
@@ -27,7 +27,8 @@ button, input {
 
 input[type="email"],
 input[type="password"],
-input[type="text"] {
+input[type="text"],
+button {
     -webkit-appearance: none; 
     appearance: none;
 }
@@ -48,13 +49,24 @@ button {
 
 button {
     cursor: pointer;
-}
-/* Styling the form */
-
-input[type="email"],
-input[type="password"],
-input[type="text"] {
     margin-bottom: 1em;
+}
+/* LOG-IN FORM */
+
+.name-wrapper,
+.email-wrapper,
+.password-wrapper {
+    margin-bottom: 1em;
+}
+
+
+.container {
+   width: 90%;
+   max-width: 1200px;
+   margin: 13em auto;
+   display: flex;
+   justify-content: space-around;
+   align-items: center; 
 }
 
 .form-container{
@@ -66,16 +78,51 @@ input[type="text"] {
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
 }
 
-form {
-    display: inline-block;
-    margin: 0 auto;
-}
 
 .input-wrapper {
     margin-bottom: 1em;
 }
 
-/* Page Title */
+.pass-required {
+    min-width: 60%;
+    font-size: 0.8rem;
+    text-align: left;
+    color: #fff;
+    padding: 2px;
+    margin-top: 5px;
+    background-color: rgb(107, 19, 19);
+    display: none;
+}
+.email-required {
+    width: 60%;
+    font-size: 0.8rem;
+    text-align: left;
+    color: #fff;
+    padding: 2px;
+    margin-top: 5px;
+    background-color: rgb(107, 19, 19);
+    display: none;
+}
+.email-invalid {
+    width: 60%;
+    font-size: 0.8rem;
+    text-align: left;
+    color: #fff;
+    padding: 2px;
+    margin-top: 5px;
+    background-color: rgb(107, 19, 19);
+    display: none;
+}
+
+
+
+
+/* PAGE TITLE*/
+
+.page-description {
+    max-width: 600px;
+    margin-bottom: 8em;
+}
 
 .main-heading {
     font-size: 4.4rem;
@@ -89,9 +136,44 @@ form {
     color: #1c2b2d;
 }
 
+.retrievePass {
+    border-bottom: 1px solid rgb(124, 120, 120);
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+}
+
+@media screen and (max-width: 1130px) {
+    .container {
+      flex-direction: column;
+    }
+    .page-description {
+        margin-bottom: 3em;
+        text-align: center;
+    }
+  }
+
+
+/* BUTTONS */
+
+button:hover,
+button:focus {
+    background-color: #e0c79a;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.new-account-btn {
+    width: 60%;
+    margin: 0 auto;
+}
+
 button {
     color:#1f6f8b;
     background-color: #e6d5b8;
+    outline: none;
+    transition: all 0.2s;
 }
 
 /* MODAL */
@@ -100,7 +182,7 @@ select {
     padding: 0;
     margin: 0;
     font-family: inherit;
-    font-size: 1rem;  
+    font-size: 1rem;   
 }
 
 .modal {
@@ -110,23 +192,50 @@ select {
     top: 0;
     left: 0;
     background-color: rgba(0,0,0,0.7);
+    display: none;
     
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }
 
 .modal-content {
     position: relative;
     width: 550px;
     margin: 0 auto;
-    margin-top: 14em;
+    margin-top: 5em;
     padding: 2.7em;
     background-color: #99a8b2;
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
     border-radius: 5px;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgb(124, 120, 120);
+    margin-bottom: 1.4em;
+    padding-bottom: 1.4em;
+}
+
+.modal-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1f6f8b;
+    margin-bottom: 3px;
+    
+}
+
+.modal-subtitle {
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #1c2b2d;
 
 }
 
 .modal-form {
-    
     display: block;
     margin: 0 auto;
 }
@@ -140,8 +249,8 @@ select {
     justify-content: space-between;
 }
 
-.name-wrapper input {
-    width: 48%;
+.name-wrapper input:nth-child(3) {
+    margin-left: 15px;
 }
 
 .birthday-wrapper {
@@ -155,6 +264,7 @@ select {
    padding: 0 0 0 0.5em;
    margin-bottom: 1em;
    border-radius: 5px;  
+   cursor: pointer;
 }
 
 .gender-wrapper {
@@ -173,16 +283,19 @@ select {
     border-radius: 5px;
     padding: 0.3em;
     background-color: #fff;;
+    cursor: pointer;
 }
 
 label {
     width: 40%; 
     padding: 0 0.5em 0 0.5em;
+    cursor: pointer;
 }
 
 input[type="radio"] {
     position: absolute;
     left: 50px;
+    cursor: pointer;
 }
 
 .pronoun-select {
@@ -229,7 +342,7 @@ input[type="radio"] {
 .close-btn {
     position: absolute;
     font-size: 2.2rem;
-    top: 0;
+    top: 5px;
     right: 15px;
     cursor: pointer;
     color: whitesmoke;
@@ -238,11 +351,39 @@ input[type="radio"] {
 
 .close-btn:hover,
 .close-btn:focus {
-    color: tomato;
+    color: #1c2b2d;
 }
 
 .pronoun-wrapper {
     display: none;
+}
+
+/* VISUAL INDICATOR OF REQUIRED FIELDS */
+
+input + span {
+    position: relative;
+}
+  
+input + span::before {
+    position: absolute;
+    right: 15px;
+    top: 16px;
+}
+
+input[type="email"] + span::before,
+input[type="password"] + span::before {
+    position: absolute;
+    left: 437px;
+    top: -32px;
+}
+  
+input:invalid {
+    border: 2px solid red;
+}
+  
+input:invalid + span::before {
+    content: '✖';
+    color: red;
 }
 
 
