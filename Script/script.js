@@ -79,6 +79,8 @@ function processEmail() {
     let emailVal = email.value;
     const email_pattern = /^[^\s@]+@[^\s@.]+\.[^\s@]+$/;
 
+    console.log(email_pattern.test(emailVal))
+
     if (email_pattern.test(emailVal) === false) {
         alertEmail.style.display = "block"; /* This alerts the user if email field is empty or incorrect pattern, by displaying an alert under the input field */
         return false;
