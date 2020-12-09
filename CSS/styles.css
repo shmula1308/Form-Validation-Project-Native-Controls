@@ -113,8 +113,16 @@ button {
     background-color: rgb(107, 19, 19);
     display: none;
 }
-
-
+.age-restrictions {
+    width: 60%;
+    font-size: 0.8rem;
+    text-align: left;
+    color: #fff;
+    padding: 2px;
+    margin-top: 5px;
+    background-color: rgb(107, 19, 19);
+    display: none;
+}
 
 
 /* PAGE TITLE*/
@@ -249,13 +257,14 @@ select {
     justify-content: space-between;
 }
 
-.name-wrapper input:nth-child(3) {
+.name-wrapper input:nth-child(2) {
     margin-left: 15px;
 }
 
 .birthday-wrapper {
     display: flex;
-    justify-content: space-between;  
+    justify-content: space-between; 
+    flex-wrap: wrap; 
 }
 
 .birthday {

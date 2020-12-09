@@ -31,11 +31,13 @@ closeBtn.addEventListener("click", () => {
 /* This is also to close the modal when we click outside the modal content.
  Because modal has a container (.modal-box) background that covers the whole window, we check wether user has clicked in that area.*/
 
-window.onclick = function (ev) {
+// Mousedown event works better than click event. I noticed that it is possible to close the modal if only clickup was on window. This is not what we want, We want the modal only to close on clickdown (mousedown event).
+
+window.addEventListener("mousedown", (ev) => {
     if (ev.target == modal) {
         modal.style.display = "none";
     }
-}
+})
 
 //This expands the sign-up form when we click on the custom gender radio button
 
@@ -122,10 +124,95 @@ function processPassword() {
 
 fns.push(processPassword); // Here we add the function to the array
 
+//This is for validating the Sign Up form
+
+const signUpForm = document.getElementById("signup-form");
+const signUpEmail = document.getElementById("signup-email");
+const signUpPass = document.getElementById("signup-password");
+
+let func = [];
+let dataObj = {};
+
+signUpForm.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+
+    for (let i = 0; i < func.length; i++) {
+        if (func[i]() === false) {
+            return;
+        }
+    }
+    console.log('Verified data: ', dataObj);
+    signUpForm.reset();
+    return true;
+})
+
+function process_Email() {
+    let email = signUpEmail.value;
+    const email_pattern = /^[^\s@]+@[^\s@.]+\.[^\s@]+$/;
+
+    if (email_pattern.test(email) === false) {
+        alertEmail.style.display = "block"; /* This alerts the user if email field is empty or incorrect pattern, by displaying an alert under the input field */
+        return false;
+    } else if (email_pattern.test(email)) {
+        alertEmail.style.display = "none";   //This removes the alert, if email is present and in a correct format.
+    }
+
+    dataObj.email = email;  // Here we store the email in the object we created above, ann display it in the console.
+    return true;
+}
+
+func.push(process_Email); // Here we add the function to the array
 
 
 
+function process_Password() {
+    let pass = signUpPass.value;
+    let lowercase = /[a-z]/;
+    let uppercase = /[A-Z]/;
+    let digit = /[0-9]/;
+    let other = /[^a-zA-Z0-9]/;
 
+    if (lowercase.test(pass) === false) {
+        passAlert.style.display = "block"; // Alerts the user by diplaying a box under the input if any of the conditions has not been met
+        return false;
+    }
+    if (uppercase.test(pass) === false) {
+        passAlert.style.display = "block";
+        return false;
+    }
+    if (digit.test(pass) === false) {
+        passAlert.style.display = "block";
+        return false;
+    }
+    if (other.test(pass) === false) {
+        passAlert.style.display = "block";
+        return false;
+    }
+    passAlert.style.display = "none"; // If conditions are met the box is removed.
+    dataObj.password = pass; // And email data is added to the obejct
+    return true;
+}
+
+func.push(process_Password); // Here we add the function to the array
+
+// One final check for the age of the user. If user is younger than 16 years old we will not allow siging up
+const day = document.getElementById("day");
+const month = document.getElementById("month");
+const year = document.getElementById("year");
+const ageAlert = document.getElementById("age-alert");
+
+function birthdayData() {
+    if (year.value > "2004") {
+        ageAlert.style.display = "block"
+        return false;
+    } else {
+        ageAlert.style.display = "none"
+    }
+    dataObj.birthday = `${day.value}/${month.value}/${year.value}`;
+    return true;
+}
+
+func.push(birthdayData);
 
 
 

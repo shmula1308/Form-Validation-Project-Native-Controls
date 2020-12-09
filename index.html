@@ -17,21 +17,19 @@
                 <h1 class="modal-title">Sign Up</h1>
                 <h4 class="modal-subtitle">It's quick and easy</h4>
             </div>
-            <form class="modal-form" method="post">
+            <form class="modal-form" method="post" id="signup-form">
                 <div class="close-btn" id="close-modal">&times;</div>
                 <div class="name-wrapper">
                     <input type="text" name="fname" id="fname" placeholder="First name" aria-label="First name" required>
-                    <span></span>
                     <input type="text" name="lname" id="lname" placeholder="Last name" aria-label="Last name" required>
-                    <span></span>
                 </div>
                 <div class="email-wrapper">
                     <input type="email" id="signup-email" name="email" placeholder="Email"  aria-label="Email" required>
-                    <span></span>
+                    <div class="email-invalid"> Email address missing or invalid</div>
                 </div>
                 <div class="password-wrapper">
                     <input type="password" id="signup-password" name="password" placeholder="Password" aria-label="password" required>
-                    <span></span>
+                    <div class="pass-required">Password missing or invalid (At least six characters, one uppercase, one lowercase and one non-alphanumeric symbol</div>
                 </div>
                 <div class="question-mark">
                     <p>Birthday</p>
@@ -153,7 +151,9 @@
                         <option>1906</option>
                         <option>1905</option>
                     </select>
+                    <div class="age-restrictions" id="age-alert"> You need to be at lest 16 years old to sign-up</div>
                 </div>
+                
                 <div class="question-mark">
                     <p>Gender</p>
                     <p><a href="#"><i class="far fa-question-circle"></i></a></p>
@@ -161,11 +161,11 @@
                 <div class="gender-wrapper">
                     <div class="gender-select">
                         <label for="female">Female</label>
-                        <input type="radio" name="gender" id="female">
+                        <input type="radio" name="gender" id="female" required>
                     </div>
                     <div class="gender-select">
                         <label for="male">Male</label>
-                        <input type="radio" name="gender" id="male">
+                        <input type="radio" name="gender" id="male" required>
                     </div>
                     <div class="gender-select">
                         <label for="custom">Custom</label>
