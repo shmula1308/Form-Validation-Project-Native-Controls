@@ -25,7 +25,7 @@
                 </div>
                 <div class="email-wrapper">
                     <input type="email" id="signup-email" name="email" placeholder="Email"  aria-label="Email" required>
-                    <div class="email-invalid"> Email address missing or invalid</div>
+                    <div class="email-required"> Email address missing or invalid</div>
                 </div>
                 <div class="password-wrapper">
                     <input type="password" id="signup-password" name="password" placeholder="Password" aria-label="password" required>
@@ -202,14 +202,13 @@
         <div class="form-container">
             <form id="main-form" method="post">
                 <div class="input-wrapper">
-                    <input type="email" id="email" name="email" placeholder="Email" autofocus aria-label="Email" >
-                    
+                    <input type="email" id="email" name="email" placeholder="Email" autofocus aria-label="Email">
                     <div class="email-invalid"> Email address missing or invalid</div>
                 </div>
                 
                 <div class="input-wrapper">
                     <input type="password" id="password" name="password" placeholder="Password" aria-label="password">
-                    <div class="pass-required">Password missing or invalid (At least six characters, one uppercase, one lowercase and one non-alphanumeric symbol</div>
+                    <div class="pass-invalid">Password missing or invalid (At least six characters, one uppercase, one lowercase and one non-alphanumeric symbol</div>
                 </div>
                 <div class="button-wrapper">
                     <button type="submit" aria-label="Submit" id="logIn" name="submit" value="submit">Log In</button>
@@ -221,7 +220,6 @@
                 <div class="button-wrapper">
                     <button type="submit" id="registration-form" aria-label="Create new account"  class="new-account-btn">Create New Account</button>
                 </div>
-    
         </div><!--  .form container -->
     </div>
 

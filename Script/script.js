@@ -9,8 +9,8 @@ const password = document.getElementById("password");
 const fRadioBtn = document.getElementById("female");
 const mRadioBtn = document.getElementById("male");
 const customGenderBtn = document.getElementById("custom");
-const emailAlert = document.querySelector(".email-required");
-const passAlert = document.querySelector(".pass-required");
+// const emailAlert = document.querySelector(".email-required");
+const passAlert = document.querySelector(".pass-invalid");
 const logInForm = document.getElementById("main-form");
 const alertEmail = document.querySelector(".email-invalid");
 let customInputs = document.getElementById("custom-gender");
@@ -142,21 +142,22 @@ signUpForm.addEventListener("submit", (ev) => {
         }
     }
     console.log('Verified data: ', dataObj);
+    alert("You have succesfully signed up for a new account!")
     signUpForm.reset();
     return true;
 })
+const alertEmailSignUp = document.querySelector(".email-required");
 
 function process_Email() {
     let email = signUpEmail.value;
     const email_pattern = /^[^\s@]+@[^\s@.]+\.[^\s@]+$/;
 
     if (email_pattern.test(email) === false) {
-        alertEmail.style.display = "block"; /* This alerts the user if email field is empty or incorrect pattern, by displaying an alert under the input field */
+        alertEmailSignUp.style.display = "block"; /* This alerts the user if email field is empty or incorrect pattern, by displaying an alert under the input field */
         return false;
-    } else if (email_pattern.test(email)) {
-        alertEmail.style.display = "none";   //This removes the alert, if email is present and in a correct format.
     }
 
+    alertEmailSignUp.style.display = "none";   //This removes the alert, if email is present and in a correct format.
     dataObj.email = email;  // Here we store the email in the object we created above, ann display it in the console.
     return true;
 }
@@ -164,6 +165,7 @@ function process_Email() {
 func.push(process_Email); // Here we add the function to the array
 
 
+const alertPassSignUp = document.querySelector(".pass-required");
 
 function process_Password() {
     let pass = signUpPass.value;
@@ -173,22 +175,22 @@ function process_Password() {
     let other = /[^a-zA-Z0-9]/;
 
     if (lowercase.test(pass) === false) {
-        passAlert.style.display = "block"; // Alerts the user by diplaying a box under the input if any of the conditions has not been met
+        alertPassSignUp.style.display = "block"; // Alerts the user by diplaying a box under the input if any of the conditions has not been met
         return false;
     }
     if (uppercase.test(pass) === false) {
-        passAlert.style.display = "block";
+        alertPassSignUp.style.display = "block";
         return false;
     }
     if (digit.test(pass) === false) {
-        passAlert.style.display = "block";
+        alertPassSignUp.style.display = "block";
         return false;
     }
     if (other.test(pass) === false) {
-        passAlert.style.display = "block";
+        alertPassSignUp.style.display = "block";
         return false;
     }
-    passAlert.style.display = "none"; // If conditions are met the box is removed.
+    alertPassSignUp.style.display = "none"; // If conditions are met the box is removed.
     dataObj.password = pass; // And email data is added to the obejct
     return true;
 }
