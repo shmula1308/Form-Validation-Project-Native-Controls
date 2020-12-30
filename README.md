@@ -61,7 +61,7 @@ function process_Password() {
         return false;
     }
     alertPassSignUp.style.display = "none"; // If conditions are met the box is removed.
-    dataObj.password = pass; // And email data is added to the obejct
+    dataObj.password = pass; // And password data is added to the obejct
     return true;
 }
 ```
